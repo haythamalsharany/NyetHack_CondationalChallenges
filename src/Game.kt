@@ -1,12 +1,12 @@
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.DeserializationConfiguration
 
 fun main() {
-    var healthPoint = 100
+    val healthPoint = 100
     val playerName: String = "Madrigal"
-    var isBlessed = true
+    val isBlessed = true
 
     var auraColore= "none"
-    var auraVisible:Boolean
+    val auraVisible:Boolean
     val karama:Int;
 
     if(healthPoint == 100){
@@ -29,17 +29,24 @@ fun main() {
 
 
 karama = (Math.pow(Math.random(), (110 - healthPoint) / 100.0) * 20).toInt()
-    auraVisible= isBlessed&&healthPoint>50;
-    auraColore = when(karama){
-        in 0..5 -> "red"
-        in 6..10->"orange"
-        in 11..15->"purple"
-        in 16..20->"green"
+    auraVisible= isBlessed&&healthPoint>50
+    when(karama){
+        in 0..5 -> {
+            auraColore = "red"
+        }
+        in 6..10-> {
+            auraColore = "orange"
+        }
+        in 11..15-> {
+            auraColore = "purple"
+        }
+        in 16..20-> {
+            auraColore = "green"
+        }
 
-        else->"none"
+        else-> auraColore = "none"
     }
-    if(auraVisible&&auraColore!="none"&& isBlessed)
-    {
+    if(auraVisible&&auraColore!="none"&& isBlessed) {
         println(" the new player\' status is :  $auraColore ")
     }
 
